@@ -1,5 +1,6 @@
 const { 
-    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerUser,loginUser,editUser
+    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerUser,loginUser,editUser,
+    registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion
 } = require('./config/imports');
 
 
@@ -13,5 +14,11 @@ routes.post('/user',registerUser.registerUser);
 routes.post('/login-user',loginUser.authenticate);
 routes.put('/edit-user',middlewareuser,editUser.editUser);
 
+//Rotas das promoções
+routes.post('/promotion',middleware,registerPromotion.registerPromotion);
+routes.get('/promotion',middleware,indexPromotion.index);
+routes.get('/promotion-read',middleware,readPromotion.readPromotion);
+routes.put('/edit-promotion',middleware,editPromotion.editPromotion);
+routes.delete('/delete-promotion',middleware,deletePromotion.deletePromotion);
 
 module.exports = routes;
