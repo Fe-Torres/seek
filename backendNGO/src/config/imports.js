@@ -12,6 +12,13 @@ const editStore = require('../controllers/Store/editStore');
 const registerClient = require('../controllers/Users/registerClient');
 const loginUser = require('../controllers/Users/loginUser');
 const editUser = require('../controllers/Users/editUser');
+//promotion
+const registerPromotion = require('../controllers/Promotion/registerPromotion');
+const indexPromotion = require('../controllers/Promotion/indexPromotion');
+const readPromotion = require('../controllers/Promotion/readPromotion');
+const editPromotion = require('../controllers/Promotion/editPromotion');
+const deletePromotion = require('../controllers/Promotion/deletePromotion');
+
 
 
 module.exports = {  
@@ -24,5 +31,10 @@ module.exports = {
     editStore,
     registerClient,
     loginUser,
-    editUser
+    editUser,
+    registerPromotion,
+    indexPromotion,
+    readPromotion,
+    editPromotion,
+    deletePromotion,
 }
