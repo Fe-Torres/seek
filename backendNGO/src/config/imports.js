@@ -9,7 +9,7 @@ const registerStore = require('../controllers/Store/registerStore');
 const loginStore = require('../controllers/Store/loginController');
 const editStore = require('../controllers/Store/editStore');
 //User
-const registerUser = require('../controllers/Users/registerUser');
+const registerClient = require('../controllers/Users/registerClient');
 const loginUser = require('../controllers/Users/loginUser');
 const editUser = require('../controllers/Users/editUser');
 
@@ -22,7 +22,7 @@ module.exports = {
     registerStore,
     loginStore,
     editStore,
-    registerUser,
+    registerClient,
     loginUser,
     editUser
 }

@@ -6,11 +6,11 @@ exports.up = function(knex) {
       table.string('telephone').notNullable();
       table.string('cpf_cnpj').notNullable();
       table.string('email').notNullable();
-      table.string('password').notNullable();
-      table.string('delivery').notNullable();
+      table.string('password_hash').notNullable();
+      table.string('deliver').notNullable();
       table.string('zip_code').notNullable();
       table.string('address').notNullable();
-      table.string('hnumber').notNullable();
+      table.string('number').notNullable();
       table.string('status').notNullable();
       table.string('type').notNullable();
       table.string('category').notNullable();

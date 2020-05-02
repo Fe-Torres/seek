@@ -1,14 +1,17 @@
 const connection = require('../../database/connection');
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
+
 module.exports = {
     async registerStore(request,response){    
         let id_notexist = false;
-        var {name, telephone, cpf_cnpj, email,password,delivery,
-            zip_code,address,house_number,type,category} = request.body;
-        var id_store = "";
-        var status = "Não atribuido"
-        password = bcrypt.hashSync(password, 10);
+
+        var {name, telephone, cpf_cnpj, email,password_hash,deliver,
+            zip_code,address,number,type,category} = request.body;
+        
+        var id_store;
+        var status = "Não atribuido";
+
         //Verificando se o e-mail existe
         var [emailRepeat] = await connection('store')
         .where({email:email})
@@ -25,7 +28,10 @@ module.exports = {
                 if (id_store != id_existing) {id_notexist = true;}
             }
 
-            const [response] = 
+            const data = request.body;
+            data.password_hash = await bcrypt.hash(data.password_hash, 10);
+
+            const store = 
             await connection('store')
             .insert({
                 id_store,
@@ -34,19 +40,20 @@ module.exports = {
                 telephone,
                 cpf_cnpj,
                 email,
-                password,
-                delivery,
+                password_hash: data.password_hash,
+                deliver,
                 zip_code,
                 address,
-                house_number,
+                number,
                 status,
                 type,
                 category,
             });
-
-            return response.json({"Positive":"Cadastrado com sucesso!",response});
+          
+            return response.json(data);
+            
         }else{
-            return response.json({"Negative":"Este e-mail já está cadastrado."});
+            return response.json({ message: "Email já cadastrado" });
         }
     }
 }
