@@ -25,11 +25,11 @@ module.exports = {
                 if (id_user != id_existing) {id_notexist = true;}
             }
 
-            const [responsee] = 
+            const [response] = 
             await connection('users')
             .insert({id_user,name, telephone, email,zip_code,sex,
                     password,address,house_number});
-            return response.json({"Positive":"Cadastrado com sucesso!",responsee});
+            return response.json({"Positive":"Cadastrado com sucesso!",response});
         }else{
             return response.json({"Negative":"Este e-mail já está cadastrado."});
         }

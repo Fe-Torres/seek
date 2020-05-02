@@ -30,11 +30,13 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'mysql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      host: '13.57.235.169',
+      port: '33356', 
+      database: 'megahackapp',
+      user:     'megahack',
+      password: '4dafba$2bff1@CFE204c0788773712D538'
     },
     pool: {
       min: 2,

@@ -25,7 +25,7 @@ module.exports = {
                 if (id_store != id_existing) {id_notexist = true;}
             }
 
-            const [responsee] = 
+            const [response] = 
             await connection('store')
             .insert({
                 id_store,
@@ -44,7 +44,7 @@ module.exports = {
                 category,
             });
 
-            return response.json({"Positive":"Cadastrado com sucesso!",responsee});
+            return response.json({"Positive":"Cadastrado com sucesso!",response});
         }else{
             return response.json({"Negative":"Este e-mail já está cadastrado."});
         }
