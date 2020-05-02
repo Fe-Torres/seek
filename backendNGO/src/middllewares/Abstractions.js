@@ -1,0 +1,1 @@
+//Abstrair a lógica em comum dos middlewares.
