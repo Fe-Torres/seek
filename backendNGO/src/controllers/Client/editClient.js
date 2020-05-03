@@ -3,9 +3,10 @@ const jwt = require('jsonwebtoken');
 const authConfig = require('../../config/auth');
 
 module.exports = {
-    async editUser(request, response) {
-        var {name, telephone,zip_code,sex,
-            address,house_number} = request.body;
+    async editClient(request, response) {
+        var {name,cpf, telephone,zip_code,
+            address,number} = request.body;
+            
         var token = request.headers.authorization;
         const parts = token.split(' ');
         const [scheme, token_split] = parts;
