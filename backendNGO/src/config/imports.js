@@ -1,8 +1,8 @@
 /* Startar as variáveis globais do sistema */
 const express = require('express');
 const routes = express.Router();
-const middleware = require('../middllewares/auth');
-const middlewareuser = require('../middllewares/authUser');
+const middleware = require('../middlewares/auth');
+const middlewareuser = require('../middlewares/authUser');
 
 //Store
 const registerStore = require('../controllers/Store/registerStore');

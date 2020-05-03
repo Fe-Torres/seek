@@ -16,10 +16,12 @@ module.exports = (request,response,next)=>{
     const [scheme, token] = parts;
 
     if(!/^Bearer$/i.test(scheme)){
-        return response.status(401).send({error: "Token malformmated"});
+        return response.status(401).send({error: "bad formattedrs"});
     };
 
-     jwt.verify(token,authConfig.secret, async (err, decoded) => {
+        console.log(authConfig.secret)
+
+        jwt.verify(token,authConfig.secret, async (err, decoded) => {
         if (err) {
             return response.status(401).send({error : "Invalid Tokens"})
         };
