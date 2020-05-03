@@ -1,7 +1,7 @@
 const { 
     express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerClient,loginClient,editClient,
     registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion,registerAttendance,editAttendance,
-    deleteAttendance,readAttendance
+    deleteAttendance,readAttendance,registerFS,indexFS,deleteFS
 } = require('./config/imports');
 
 
@@ -27,6 +27,11 @@ routes.post('/attendance',middlewareuser,registerAttendance.registerAttendance);
 routes.put('/edit-attendance',middlewareuser,editAttendance.editAttendance);
 routes.delete('/delete-attendance',middlewareuser,deleteAttendance.deleteAttendance);
 routes.get('/attendance-read',middlewareuser,readAttendance.readAttendance);
+//Rotas dos favoritos
+routes.post('/favorite',middlewareuser,registerFS.addFavoriteStore);
+routes.get('/favorite',middlewareuser,indexFS.index);
+routes.delete('/delete-favorite',middlewareuser,deleteFS.deleteFavoriteStore);
+
 
 
 module.exports = routes;

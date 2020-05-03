@@ -3,7 +3,7 @@ exports.up = function(knex) {
       table.string('id_list').notNullable().primary();
       table.string('client_id').notNullable();
       table.string('store_id').notNullable();
-      table.json('sent_items');
+      table.json('sent_items').notNullable();
       table.json('returned_items');
       table.string('verified').notNullable();
       table.string('status').notNullable();

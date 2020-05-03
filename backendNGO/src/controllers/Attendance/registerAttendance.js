@@ -29,8 +29,15 @@ module.exports = {
                 if (id_list != id_existing) {id_notexist = true;}
             }
                 const result = await connection('attendance')
-                .insert({id_list,client_id,store_id,
-                        sent_items: JSON.stringify(sent_items),verified,status,date_time});
+                .insert({
+                        id_list,
+                        client_id,
+                        store_id,
+                        sent_items: JSON.stringify(sent_items),
+                        verified,
+                        status,
+                        date_time
+                    });
                 return response.json({"Positive":"Cadastrado com sucesso!",result});
         } 
     }

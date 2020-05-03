@@ -9,6 +9,8 @@ exports.up = function(knex) {
       table.string('zip_code').notNullable();
       table.string('address').notNullable();
       table.string('number').notNullable();
+      table.json('favorite_store').notNullable();
+      
     });
   };
 

@@ -23,6 +23,11 @@ const registerAttendance = require('../controllers/Attendance/registerAttendance
 const readAttendance = require('../controllers/Attendance/readAttendance');
 const editAttendance = require('../controllers/Attendance/editAttendance');
 const deleteAttendance = require('../controllers/Attendance/deleteAttendance');
+//Favorite Store
+const registerFS = require('../controllers/FavoriteStore/addFS');
+const indexFS = require('../controllers/FavoriteStore/indexFs');
+const deleteFS = require('../controllers/FavoriteStore/deleteFS');
+
 
 
 
@@ -47,4 +52,7 @@ module.exports = {
     editAttendance,
     deleteAttendance,
     readAttendance,
+    registerFS,
+    indexFS,
+    deleteFS,
 }

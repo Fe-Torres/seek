@@ -5,10 +5,8 @@ const bcrypt = require('bcryptjs');
 module.exports = {
     async registerClient(request,response){    
         let id_notexist = false;
-
         var {name, telephone,cpf, email,zip_code,password_hash,
-            address,number} = request.body;
-
+            address,number} = request.body;   
         var id_client = "";
        
         //Verificando se o e-mail existe
@@ -40,9 +38,9 @@ module.exports = {
                 zip_code,
                 password_hash: data.password_hash,
                 address,
-                number
+                number,
+                favorite_store:JSON.stringify({}),
             });
-
             return response.json(data);
         }else{
             return response.json({"Negative":"Este e-mail já está cadastrado."});
