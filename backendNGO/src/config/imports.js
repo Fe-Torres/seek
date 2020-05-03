@@ -18,6 +18,9 @@ const indexPromotion = require('../controllers/Promotion/indexPromotion');
 const readPromotion = require('../controllers/Promotion/readPromotion');
 const editPromotion = require('../controllers/Promotion/editPromotion');
 const deletePromotion = require('../controllers/Promotion/deletePromotion');
+//Attendance
+const registerAttendance = require('../controllers/Attendance/registerAttendance');
+const editAttendance = require('../controllers/Attendance/editAttendance');
 
 
 
@@ -37,4 +40,6 @@ module.exports = {
     readPromotion,
     editPromotion,
     deletePromotion,
+    registerAttendance,
+    editAttendance,
 }

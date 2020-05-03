@@ -1,10 +1,6 @@
 const { 
-<<<<<<< HEAD
-    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerClient,loginUser,editUser
-=======
-    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerUser,loginUser,editUser,
-    registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion
->>>>>>> cb959f577b2f9382d2dd5f812bb2f1dded0c5fb4
+    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerClient,loginUser,editUser,
+    registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion,registerAttendance,editAttendance
 } = require('./config/imports');
 
 
@@ -24,5 +20,10 @@ routes.get('/promotion',middleware,indexPromotion.index);
 routes.get('/promotion-read',middleware,readPromotion.readPromotion);
 routes.put('/edit-promotion',middleware,editPromotion.editPromotion);
 routes.delete('/delete-promotion',middleware,deletePromotion.deletePromotion);
+
+//Rotas dos atendimentos
+routes.post('/attendance',middlewareuser,registerAttendance.registerAttendance);
+routes.put('/edit-attendance',middlewareuser,editAttendance.editAttendance);
+
 
 module.exports = routes;

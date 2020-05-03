@@ -25,11 +25,10 @@ module.exports = (request,response,next)=>{
             return response.status(401).send({error : "Invalid Tokens"})
         };
         
-        id_user = decoded.id;
-        id = id_user[0].id_user;
-
-        var [emailRepeat] = await connection('users')
-        .where({id_user:id_user})
+        id_client = decoded.id;
+        
+        var [emailRepeat] = await connection('clients')
+        .where({id_client:id_client})
         .count();    
 
         emailRepeat = emailRepeat[`count(*)`]
