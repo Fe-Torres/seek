@@ -1,10 +1,7 @@
 const { 
-<<<<<<< HEAD
-    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerClient,loginUser,editUser
-=======
-    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerUser,loginUser,editUser,
+express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerClient,loginUser,editUser,
     registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion
->>>>>>> cb959f577b2f9382d2dd5f812bb2f1dded0c5fb4
+
 } = require('./config/imports');
 
 
