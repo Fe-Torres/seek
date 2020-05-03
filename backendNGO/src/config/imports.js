@@ -20,7 +20,10 @@ const editPromotion = require('../controllers/Promotion/editPromotion');
 const deletePromotion = require('../controllers/Promotion/deletePromotion');
 //Attendance
 const registerAttendance = require('../controllers/Attendance/registerAttendance');
+const readAttendance = require('../controllers/Attendance/readAttendance');
 const editAttendance = require('../controllers/Attendance/editAttendance');
+const deleteAttendance = require('../controllers/Attendance/deleteAttendance');
+
 
 
 
@@ -42,4 +45,6 @@ module.exports = {
     deletePromotion,
     registerAttendance,
     editAttendance,
+    deleteAttendance,
+    readAttendance,
 }

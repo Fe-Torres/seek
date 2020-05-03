@@ -1,6 +1,8 @@
 const { 
     express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerClient,loginUser,editUser,
-    registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion,registerAttendance,editAttendance
+    registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion,registerAttendance,editAttendance,
+    deleteAttendance,readAttendance
+    
 } = require('./config/imports');
 
 
@@ -24,6 +26,8 @@ routes.delete('/delete-promotion',middleware,deletePromotion.deletePromotion);
 //Rotas dos atendimentos
 routes.post('/attendance',middlewareuser,registerAttendance.registerAttendance);
 routes.put('/edit-attendance',middlewareuser,editAttendance.editAttendance);
+routes.delete('/delete-attendance',middlewareuser,deleteAttendance.deleteAttendance);
+routes.get('/attendance-read',middlewareuser,readAttendance.readAttendance);
 
 
 module.exports = routes;
