@@ -1,5 +1,5 @@
 const { 
-    express, routes, middleware,middlewareuser,registerStore,loginStore,editStore,registerClient,loginClient,editClient,
+    express, routes, middleware,middlewareuser,registerStore,loginStore,readStore,editStore,registerClient,loginClient,editClient,
     registerPromotion,indexPromotion,readPromotion,editPromotion,deletePromotion,registerAttendance,editAttendance,
     deleteAttendance,readAttendance,registerFS,indexFS,deleteFS
 } = require('./config/imports');
@@ -8,6 +8,7 @@ const {
 //Rotas das lojas
 routes.post('/store',registerStore.registerStore );
 routes.post('/login-store',loginStore.authenticate );
+routes.get('/read-store',middlewareuser,readStore.readStore);
 routes.put('/edit-store',middleware,editStore.editStore);
 
 //Rotas do cliente

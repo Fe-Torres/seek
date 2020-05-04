@@ -7,6 +7,7 @@ const middlewareuser = require('../middlewares/authUser');
 //Store
 const registerStore = require('../controllers/Store/registerStore');
 const loginStore = require('../controllers/Store/loginStore');
+const readStore = require('../controllers/Store/readStore');
 const editStore = require('../controllers/Store/editStore');
 //User
 const registerClient = require('../controllers/Client/registerClient');
@@ -39,6 +40,7 @@ module.exports = {
     middlewareuser,
     registerStore,
     loginStore,
+    readStore,
     editStore,
     registerClient,
     loginClient,

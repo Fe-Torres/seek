@@ -19,6 +19,10 @@ module.exports = {
             if (err) {return response.status(401).send({error : "Invalid Tokens"})};
             var id_store = decoded.id;
         }); 
+            const [id_public] =  await connection('store').where({
+                'id_store': id_store
+              }).select('id_public');
+            console.log(id_public);  
             //Verificando se o e-mail exist
             while (id_notexist == false) {
                 id_promo = crypto.randomBytes(4).toString('HEX');           
@@ -29,7 +33,7 @@ module.exports = {
             }
     
                 await connection('promotion')
-                .insert({id_promo,id_store,name,price });
+                .insert({id_promo,id_public: id_public.id_public,id_store,name,price });
                 return response.json({"Positive":"Cadastrado com sucesso!"});
         } catch (error) {
                 return response.json({"Negative":"Cadastrado com sucesso!: ",error});
