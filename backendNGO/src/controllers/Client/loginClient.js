@@ -31,7 +31,5 @@ module.exports = {
         return response.json({client,
             token: generateToken({id:client.id_client})
         });
-        
-        
     }
 }

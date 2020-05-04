@@ -12,7 +12,6 @@ module.exports = {
     async authenticate(request,response){
         const {email,password_hash} = request.body;
         
-
         const store = await connection('store').where({'email': email})
         .select('id_store', 'name', 'email', 'cpf_cnpj', 'password_hash').first();
 

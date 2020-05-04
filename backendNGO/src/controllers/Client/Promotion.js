@@ -3,25 +3,33 @@ const jwt = require('jsonwebtoken');
 const authConfig = require('../../config/auth');
 
 module.exports = {
-    async readPromotion(request,response){
+    async index(request,response){
+        const {page = 1} = request.query;
+        const {id_public} = request.body;
+        const [count] =  await connection('promotion')
+        .where({'id_public':id_public})
+        .count();
+        
+        if (count['count(*)'] == 0) {
+            return response.status(401).send({message : "Nenhuma promoção encontrada"}); 
+        }
+        
         var token = request.headers.authorization;
-        const {id_promo} = request.body;
         const parts = token.split(' ');
         const [scheme, token_split] = parts;
         
+        
         jwt.verify(token_split,authConfig.secret, async (err, decoded) => {
             if (err) {return response.status(401).send({error : "Invalid Tokens"})};
-            id_store = decoded.id;
         }); 
-
-        const promotion = await connection('promotion').where({
-            'id_promo': id_promo,
-            'id_store': id_store
-          }).select('*');
         
-          if(promotion == 0){
-            return response.status(400).send({error : "Erro na busca"});
-        }  
+        const promotion = await connection('promotion').where({
+            'id_public': id_public
+          })
+          .limit(5)
+          .offset((page - 1)*5)
+          .select('*');
+        response.header('X-Total-Count',count['count(*)']);
         return response.json({promotion});
     }
 }

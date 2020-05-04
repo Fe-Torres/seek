@@ -9,10 +9,14 @@ const registerStore = require('../controllers/Store/registerStore');
 const loginStore = require('../controllers/Store/loginStore');
 const readStore = require('../controllers/Store/readStore');
 const editStore = require('../controllers/Store/editStore');
-//User
+const attendanceStore = require('../controllers/Store/attendance');
+//Client
 const registerClient = require('../controllers/Client/registerClient');
 const loginClient = require('../controllers/Client/loginClient');
 const editClient = require('../controllers/Client/editClient');
+const promotion = require('../controllers/Client/Promotion');
+const clientAttendace = require('../controllers/Client/attendance');
+
 //promotion
 const registerPromotion = require('../controllers/Promotion/registerPromotion');
 const indexPromotion = require('../controllers/Promotion/indexPromotion');
@@ -42,9 +46,12 @@ module.exports = {
     loginStore,
     readStore,
     editStore,
+    attendanceStore,
     registerClient,
     loginClient,
     editClient,
+    clientAttendace,
+    promotion,
     registerPromotion,
     indexPromotion,
     readPromotion,

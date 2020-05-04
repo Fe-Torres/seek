@@ -17,12 +17,12 @@ module.exports = {
         
         jwt.verify(token_split,authConfig.secret, async (err, decoded) => {
             if (err) {return response.status(401).send({error : "Invalid Tokens"})};
-            var id_store = decoded.id;
+            id_store = decoded.id;
         }); 
             const [id_public] =  await connection('store').where({
                 'id_store': id_store
               }).select('id_public');
-            console.log(id_public);  
+            (id_public);  
             //Verificando se o e-mail exist
             while (id_notexist == false) {
                 id_promo = crypto.randomBytes(4).toString('HEX');           

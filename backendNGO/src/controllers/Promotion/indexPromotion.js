@@ -13,7 +13,7 @@ module.exports = {
         
         jwt.verify(token_split,authConfig.secret, async (err, decoded) => {
             if (err) {return response.status(401).send({error : "Invalid Tokens"})};
-            var id_store = decoded.id;
+           id_store = decoded.id;
         }); 
         
         const promotion = await connection('promotion').where({

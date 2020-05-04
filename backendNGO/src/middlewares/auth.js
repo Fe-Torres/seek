@@ -19,7 +19,7 @@ module.exports = (request,response,next)=>{
         return response.status(401).send({error: "bad formattedrs"});
     };
 
-        console.log(authConfig.secret)
+        (authConfig.secret)
 
         jwt.verify(token,authConfig.secret, async (err, decoded) => {
         if (err) {
